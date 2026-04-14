@@ -29,6 +29,7 @@ const path      = require('path');
 const initSqlJs = require('sql.js');
 
 const app  = express();
+app.set("trust proxy", 1);
 const PORT = process.env.PORT || 3001;
 const DATA_DIR = path.join(__dirname, 'data');
 const DB_PATH  = path.join(DATA_DIR, 'delmigos.db');
