@@ -23,7 +23,6 @@ const cors      = require('cors');
 const helmet    = require('helmet');
 const rateLimit = require('express-rate-limit');
 const nodemailer= require('nodemailer');
-const roomsRoutes = require('./routes/rooms');
 const { v4: uuidv4 } = require('uuid');
 const fs        = require('fs');
 const path      = require('path');
@@ -44,7 +43,6 @@ app.use(cors({
 }));
 app.use(express.json());
 app.use(express.static(path.join(__dirname, 'public')));
-app.use('/api/rooms', roomsRoutes);
 
 const apiLimiter     = rateLimit({ windowMs: 15*60*1000, max: 200 });
 const bookingLimiter = rateLimit({ windowMs: 60*60*1000, max: 15 });
